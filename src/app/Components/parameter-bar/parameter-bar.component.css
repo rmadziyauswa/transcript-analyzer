@@ -1,0 +1,19 @@
+div.parameter-bar {
+    position: absolute;
+    width: 1440px;
+    height: 56px;
+    left: 0px;
+    top: 56px;
+    background: #EFEFF1;
+}
+
+div.group3 {
+    position: absolute;
+    width: 232px;
+    height: 38px;
+    left: 220px;
+    top: 65px;
+    opacity: 0.5;
+    background: rgba(51, 51, 51, 0.06);
+    border-radius: 4px 4px 0px 0px;
+}

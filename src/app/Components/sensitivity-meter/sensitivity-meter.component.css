@@ -1,0 +1,33 @@
+span.range-percentage {
+    position: absolute;
+    width: 34px;
+    height: 20px;
+    left: 1374px;
+    top: 72px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 175% */
+    text-align: right;
+    /* Black / 87% */
+    color: rgba(0, 0, 0, 0.87);
+}
+
+span.match-sensitivity {
+    position: absolute;
+    width: 178px;
+    height: 20px;
+    left: 758px;
+    top: 72px;
+    /* Body */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 175% */
+    /* Black / 87% */
+    color: rgba(0, 0, 0, 0.87);
+}

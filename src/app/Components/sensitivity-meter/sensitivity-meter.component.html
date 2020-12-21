@@ -1,0 +1,5 @@
+<div class="range-slider">
+    <mat-slider (change)="emitSensitivity()" class="range-sensitivity" [disabled]="disabled" [max]="max" [min]="min" [step]="step" [(ngModel)]="sensitivity" [vertical]="vertical"></mat-slider>
+    <span class="range-percentage">{{sensitivity}}%</span>
+    <span class="match-sensitivity">{{rangeLabel}}</span>
+</div>

@@ -1,0 +1,34 @@
+<div class="transcript">
+    <div class="rectangle4">
+        <span class="body1font">
+            Real
+        </span>
+        <span class="body2font">
+            35%
+        </span>
+
+        <div class="group4">
+
+        </div>
+    </div>
+
+    <div class="frame5">
+        <table>
+            <thead>
+                <tr>
+                    <th *ngFor="let column of columns">{{column}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-template *ngIf="!isNormalScript">
+                    <tr *ngFor="let row of transcriptLoad.transcript">
+                        <td>{{row["timeFrom"]}}</td>
+                        <td>{{row["channel"]}}</td>
+                        <td>{{row["sentence"]}}</td>
+                    </tr>
+                </ng-template>
+
+            </tbody>
+        </table>
+    </div>
+</div>

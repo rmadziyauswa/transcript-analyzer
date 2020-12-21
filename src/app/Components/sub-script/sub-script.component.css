@@ -1,0 +1,58 @@
+div.transcript {
+    position: absolute;
+    width: 676px;
+    height: 682px;
+    left: 32px;
+    top: 144px;
+}
+
+div.rectangle4 {
+    position: absolute;
+    width: 676px;
+    height: 40px;
+    left: 32px;
+    top: 144px;
+    background: #EFEFF1;
+    border-radius: 4px 4px 0px 0px;
+}
+
+span.body1font {
+    position: absolute;
+    width: 148px;
+    height: 20px;
+    left: 56px;
+    top: 152px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 175% */
+    /* Black / 87% */
+    color: rgba(0, 0, 0, 0.87);
+}
+
+span.body2font {
+    position: absolute;
+    width: 56px;
+    height: 20px;
+    left: 588px;
+    top: 152px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    /* identical to box height, or 175% */
+    text-align: right;
+    /* Black / 87% */
+    color: rgba(0, 0, 0, 0.87);
+}
+
+div.group4 {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 660px;
+    top: 152px;
+}

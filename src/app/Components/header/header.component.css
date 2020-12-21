@@ -1,0 +1,151 @@
+@media screen and (max-width: 600px) {
+    div.nav-icon {
+        position: absolute;
+        visibility: hidden;
+        width: 40px;
+        height: 40px;
+        left: 8px;
+        top: 8px;
+    }
+    div.nav-icon div.navbar {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        left: 16px;
+        bottom: 860px;
+    }
+    div.nav-icon div.navbar .shape {
+        position: absolute;
+        left: 12.5%;
+        right: 12.5%;
+        top: 25%;
+        bottom: 25%;
+        background: #FFFFFF;
+        mix-blend-mode: normal;
+    }
+    div.nav-icon div.navbar .bounds {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    }
+    div.nav-icon div.back {
+        position: absolute;
+        visibility: hidden;
+        width: 24px;
+        height: 24px;
+        left: 16px;
+        bottom: 860px;
+    }
+    div.nav-icon div.back .shape {
+        position: absolute;
+        left: 16.67%;
+        right: 16.67%;
+        top: 16.67%;
+        bottom: 16.67%;
+        /* Black / 60% */
+        background: rgba(0, 0, 0, 0.6);
+        mix-blend-mode: normal;
+    }
+    div.nav-icon div.back .bounds {
+        position: absolute;
+        left: 0%;
+        right: 0%;
+        top: 0%;
+        bottom: 0%;
+    }
+    div.nav-icon-touch-target {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        left: 8px;
+        bottom: 852px;
+    }
+}
+
+div.top-bar {
+    position: absolute;
+    width: 1440px;
+    height: 56px;
+    left: 0px;
+    top: 0px;
+    background: #5A5A71;
+    /* Card Shadow */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+div.ellipsis1 {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    left: 1374px;
+    top: 11px;
+    /* background: url(../../../assets/images/Ellipse1.png); */
+}
+
+div.app-bar-title-icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    position: absolute;
+    width: 223px;
+    height: 23px;
+    left: 32px;
+    bottom: 860px;
+}
+
+div.app-bar-title-icon .dropdown {
+    position: static;
+    display: none;
+    width: 24px;
+    height: 24px;
+    right: 98px;
+    top: calc(50% - 24px/2 + 0.5px);
+    /* Inside Auto Layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 8px 0px;
+}
+
+div.app-bar-title-icon .dropdown .shape {
+    position: absolute;
+    left: 29.17%;
+    right: 29.17%;
+    top: 41.67%;
+    bottom: 37.5%;
+    background: #FFFFFF;
+    mix-blend-mode: normal;
+}
+
+div.app-bar-title-icon .dropdown .bounds {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
+}
+
+h1.page-title {
+    position: static;
+    left: 0px;
+    right: 0px;
+    top: 0%;
+    bottom: 0%;
+    /* Title */
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    letter-spacing: 0.0015em;
+    /* White / Surface */
+    color: #FFFFFF;
+    /* Inside Auto Layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 8px 0px;
+}

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { TranscriptLoad } from './Models/transcript-load';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'transcript-analyzer';
+  transcriptLoad!: TranscriptLoad;
+
+  transcriptLoadReceived(e:TranscriptLoad)
+  {
+    this.transcriptLoad = e;
+  }
 }
