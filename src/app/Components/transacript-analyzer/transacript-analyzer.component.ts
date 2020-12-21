@@ -9,11 +9,11 @@ import { TranscriptLoad } from 'src/app/Models/transcript-load';
 export class TransacriptAnalyzerComponent implements OnInit {
   columnsForReal:string[] = ['Time','Speaker','Sentence'];
   columnsForExpected:string[] = ['Line','Speaker','Sentence'];
-  @Input() transcriptLoad!: TranscriptLoad;
+  @Input() callId: string = "";
 
   constructor() { }
-
   ngOnInit(): void {
+    
   }
 
 }

@@ -1,6 +1,6 @@
 <div class="container">
     <app-header headerText="TRANSCRIPT ANALYZER" imageSource="../../../assets/images/Ellipse1.png"></app-header>
-    <app-parameter-bar (transcriptLoadEmitter)="transcriptLoadReceived($event)"></app-parameter-bar>
-    <!-- <app-empty-state></app-empty-state> -->
-    <app-transacript-analyzer [transcriptLoad]=transcriptLoad></app-transacript-analyzer>
+    <app-parameter-bar (callIdEmitter)="callIdEmitter($event)"></app-parameter-bar>
+    <app-empty-state *ngIf="!callId"></app-empty-state>
+    <app-transacript-analyzer [callId]=callId></app-transacript-analyzer>
 </div>

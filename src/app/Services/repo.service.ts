@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, throwError,from } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import {environment} from '../../environments/environment';
 import { Agent } from '../Models/agent';
 import { Call } from '../Models/call';
@@ -25,18 +25,29 @@ export class RepoService {
       );
   }
 
-  getCalls() {
-    let url = `${environment.apiUrl}/${this.callsEndpoint}`;
-    return this.http.get<Call[]>(url)
+  getAgentById(agentId:string) {
+    let url = `${environment.apiUrl}/${this.agentsEndpoint}`;
+    return this.http.get<Agent[]>(url)
       .pipe(
+        map(data => data.filter(a => a.agent_id===agentId)),
         catchError(this.handleError)
       );
   }
 
-  getTranscriptLoad() {
-    let url = `${environment.apiUrl}/${this.transcriptsEndpoint}`;
-    return this.http.get<TranscriptLoad>(url)
+  getCallsByAgentId(agentId:string) {
+    let url = `${environment.apiUrl}/${this.callsEndpoint}`;
+    return this.http.get<Call[]>(url)
       .pipe(
+        map(data => data.filter(c => c.agent[0].agent_id===agentId) ),
+        catchError(this.handleError)
+      );
+  }
+
+  getTranscriptLoad(callId:string) {
+    let url = `${environment.apiUrl}/${this.transcriptsEndpoint}`;
+    return this.http.get<TranscriptLoad[]>(url)
+      .pipe(
+        map(data => data.filter(t => t.call_id===callId) ),
         catchError(this.handleError)
       );
   }

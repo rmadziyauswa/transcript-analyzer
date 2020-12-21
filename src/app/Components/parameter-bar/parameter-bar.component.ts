@@ -16,7 +16,7 @@ export class ParameterBarComponent implements OnInit {
   agentDescriptions:string[] = ['full_name'];
   callDescriptions:string[] = ['call_start_time',''];
   selectedCall:string = "";
-  @Output() transcriptLoadEmitter = new EventEmitter<TranscriptLoad>();
+  @Output() callIdEmitter = new EventEmitter<string>();
 
   constructor(private repoService:RepoService) { }
 
@@ -31,19 +31,13 @@ export class ParameterBarComponent implements OnInit {
 
   changeAgent(e:string)
   {
-
-    console.log("Agent Changed To : ",e)
-    this.repoService.getCalls().subscribe(data => this.calls = data.filter(c => c.agent[0].agent_id == e).sort((a,b)=> a.call_start_time.getDate() - b.call_start_time.getDate()));
+    this.repoService.getCallsByAgentId(e).subscribe(data => {
+      this.calls = data.sort((a,b)=> a.call_start_time.getDate() - b.call_start_time.getDate());
+    });
   }
 
   changeCall()
   {
-    console.log("Call Changed To : ",this.selectedCall)
-    this.repoService.getTranscriptLoad().subscribe(data => {
-      console.log(data); 
-      this.transcriptLoad = data;
-      this.transcriptLoadEmitter.emit(this.transcriptLoad);
-    });
+    this.callIdEmitter.emit(this.selectedCall);
   }
-
 }

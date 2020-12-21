@@ -1,10 +1,10 @@
-<div class="transcript">
+<div *ngIf="transcriptLoad" [ngClass]="containerClasses()">
     <div class="rectangle4">
         <span class="body1font">
-            Real
+            {{headerLabel}}
         </span>
         <span class="body2font">
-            35%
+            {{percentage}}%
         </span>
 
         <div class="group4">
@@ -19,15 +19,19 @@
                     <th *ngFor="let column of columns">{{column}}</th>
                 </tr>
             </thead>
-            <tbody>
-                <ng-template *ngIf="!isNormalScript">
-                    <tr *ngFor="let row of transcriptLoad.transcript">
-                        <td>{{row["timeFrom"]}}</td>
-                        <td>{{row["channel"]}}</td>
-                        <td>{{row["sentence"]}}</td>
-                    </tr>
-                </ng-template>
-
+            <tbody *ngIf="isReal">
+                <tr *ngFor="let row of transcriptLoad.transcript">
+                    <td>{{getTimeFrom(row["timeFrom"])}}</td>
+                    <td>{{getSpeaker(row["channel"])}}</td>
+                    <td>{{row["sentence"]}}</td>
+                </tr>
+            </tbody>
+            <tbody *ngIf="!isReal">
+                <tr *ngFor="let row of transcriptLoad.script">
+                    <td>{{row["order"] + 1}}</td>
+                    <td>Rep :</td>
+                    <td>{{row["sentence"]}}</td>
+                </tr>
             </tbody>
         </table>
     </div>

@@ -8,10 +8,10 @@ import { TranscriptLoad } from './Models/transcript-load';
 })
 export class AppComponent {
   title = 'transcript-analyzer';
-  transcriptLoad!: TranscriptLoad;
+  callId!: string;
 
-  transcriptLoadReceived(e:TranscriptLoad)
+  callIdEmitter(e:string)
   {
-    this.transcriptLoad = e;
+    this.callId = e;
   }
 }

@@ -1,3 +1,4 @@
 <div class="transacript-analyzer">
-    <app-sub-script [columns]=columnsForReal isNormalScript=false [transcriptLoad]=transcriptLoad></app-sub-script>
+    <app-sub-script [columns]=columnsForReal [isReal]=true [callId]=callId headerLabel="Real"></app-sub-script>
+    <app-sub-script [columns]=columnsForExpected [isReal]=false [callId]=callId headerLabel="Expected"></app-sub-script>
 </div>

@@ -6,6 +6,10 @@ div.transcript {
     top: 144px;
 }
 
+div.transcript.isExpected {
+    left: 732px;
+}
+
 div.rectangle4 {
     position: absolute;
     width: 676px;
