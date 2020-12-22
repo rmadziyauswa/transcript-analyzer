@@ -7,7 +7,7 @@ import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
 })
 export class SensitivityMeterComponent implements OnInit {
   @Output() change = new EventEmitter<number>();
-  sensitivity:number = 38;
+  @Input() sensitivity:number = 38;
   @Input() rangeLabel = "MATCHING SENSITIVITY";
   @Input() disabled = false;
   @Input() max = 100;

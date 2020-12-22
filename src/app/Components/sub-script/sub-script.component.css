@@ -60,3 +60,21 @@ div.group4 {
     left: 660px;
     top: 152px;
 }
+
+div.frame5 table {
+    position: absolute;
+    width: 628px;
+    height: 553px;
+    left: 56px;
+    top: 246px;
+    display: block;
+    overflow-y: scroll;
+}
+
+td.isSimilar {
+    background: rgba(90, 90, 113, 0.2);
+}
+
+td.isSimilarDarker {
+    background: rgba(90, 90, 113, 0.4);
+}

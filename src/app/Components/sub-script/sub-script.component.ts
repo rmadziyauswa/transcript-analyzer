@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { TooltipPosition } from '@angular/material/tooltip';
 import { TranscriptLoad } from 'src/app/Models/transcript-load';
 import { RepoService } from 'src/app/Services/repo.service';
 
@@ -12,8 +13,13 @@ export class SubScriptComponent implements OnInit,OnChanges {
   @Input() callId: string = "";
   @Input() headerLabel: string = "Real";
   @Input()isReal:boolean = true;
+  @Input() selectedSensitivity:number = 0;
+  @Input() matchingExpectedSentence:string = "";
+  @Output() matchingExpectedSentenceEmitter = new EventEmitter<string>();
+  expectedAgentLabel:string = "Rep :";
+  tooltipPosition:TooltipPosition = "above";
   transcriptLoad!:TranscriptLoad;
-  percentage:number = 35;
+  percentage:number = 0;
   customerName:string = "";
   customerChannel:number = 0;
   agentName:string = "";
@@ -24,11 +30,15 @@ export class SubScriptComponent implements OnInit,OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     this.repoService.getTranscriptLoad(this.callId).subscribe(data => {
       this.transcriptLoad=data[0];
-      this.customerName = this.getFirstnameOnly(this.transcriptLoad.customer[0].full_name);
-      this.customerChannel = this.transcriptLoad.customer[0].channel_no;
-      this.agentChannel = this.transcriptLoad.agent[0].channel_no;
-      let agentId= this.transcriptLoad.agent[0].agent_id;
-      this.repoService.getAgentById(agentId).subscribe(data => this.agentName = this.getFirstnameOnly(data[0].full_name));
+      if(this.transcriptLoad)
+      {
+        this.customerName = this.getFirstnameOnly(this.transcriptLoad.customer[0].full_name);
+        this.customerChannel = this.transcriptLoad.customer[0].channel_no;
+        this.agentChannel = this.transcriptLoad.agent[0].channel_no;
+        let agentId= this.transcriptLoad.agent[0].agent_id;
+        this.repoService.getAgentById(agentId).subscribe(data => this.agentName = this.getFirstnameOnly(data[0].full_name));
+        this.percentage = this.calculatePercentage();
+      }
     });
   }
 
@@ -79,6 +89,68 @@ export class SubScriptComponent implements OnInit,OnChanges {
     else{
       return ["transcript"];
     }
+  }
+
+  sentenceClasses(similarity:number,matching_sentence:string)
+  {
+    let isSimilar = similarity >= (this.selectedSensitivity / 100);
+    let result:string[] = [];
+    if(isSimilar){
+      result.push("isSimilar");
+    }
+if(!this.isReal && this.matchingExpectedSentence === matching_sentence)
+    {
+      result = ["isSimilarDarker"];
+    }
+
+    return result;
+  }
+
+  getToolTip(similarity:number,sentence:string,matching_sentence:string)
+  {
+    let lineNumber = this.getLineNumberForMatchingSentence(matching_sentence);
+    let percentage = Math.round(similarity * 100);
+    let tooltip = "";
+    if(lineNumber > 0)
+    {
+      tooltip = `${percentage}% matching with line #${lineNumber} "${matching_sentence}"`;
+    }
+    return tooltip;
+  }
+
+  setMatchingExpectedSentence(matching_sentence:string)
+  {
+    this.matchingExpectedSentence = matching_sentence;
+    this.matchingExpectedSentenceEmitter.emit(this.matchingExpectedSentence);
+  }
+
+  getLineNumberForMatchingSentence(matching_sentence:string):number
+  {
+    let matchingFilter =  this.transcriptLoad.script.filter(s => s.sentence===matching_sentence);
+    if(matchingFilter.length > 0)
+    {
+      return matchingFilter[0].order + 1;
+    }
+    return 0;
+  }
+
+
+  calculatePercentage()
+  {
+    console.log(`IsReal = ${this.isReal} and Sensitivity = ${this.selectedSensitivity}`);
+    let result = 0
+    if(this.isReal)
+    {
+      let numberSelected =  this.transcriptLoad.transcript.filter(s => s.similarity >= (this.selectedSensitivity / 100)).length;
+      let numberOfSentences = this.transcriptLoad.transcript.length;
+      result = Math.round((numberSelected / numberOfSentences) * 100);
+
+    }else{
+      let numberSelected =  this.transcriptLoad.script.filter(s => s.similarity >= (this.selectedSensitivity / 100)).length;
+      let numberOfSentences = this.transcriptLoad.script.length;
+      result = Math.round((numberSelected / numberOfSentences) * 100);
+    }
+    return result;
   }
 
 }

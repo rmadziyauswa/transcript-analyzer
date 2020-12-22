@@ -1,4 +1,4 @@
 <div class="transacript-analyzer">
-    <app-sub-script [columns]=columnsForReal [isReal]=true [callId]=callId headerLabel="Real"></app-sub-script>
-    <app-sub-script [columns]=columnsForExpected [isReal]=false [callId]=callId headerLabel="Expected"></app-sub-script>
+    <app-sub-script [columns]=columnsForReal [isReal]=true [callId]=callId headerLabel="Real" [selectedSensitivity]=selectedSensitivity (matchingExpectedSentenceEmitter)="currentMatchingExpectedSentenceChange($event)"></app-sub-script>
+    <app-sub-script [columns]=columnsForExpected [isReal]=false [callId]=callId headerLabel="Expected" [selectedSensitivity]=selectedSensitivity [matchingExpectedSentence]=currentMatchingExpectedSentence (matchingExpectedSentenceEmitter)="currentMatchingExpectedSentenceChange($event)"></app-sub-script>
 </div>
