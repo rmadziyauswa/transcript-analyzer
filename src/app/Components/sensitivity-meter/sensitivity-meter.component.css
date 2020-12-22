@@ -1,33 +1,42 @@
+div.range-slider {
+    position: absolute;
+    top: 10px;
+    left: 850px;
+    width: 300px;
+}
+
 span.range-percentage {
     position: absolute;
     width: 34px;
     height: 20px;
-    left: 1374px;
-    top: 72px;
+    left: 520px;
+    top: 8px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 28px;
-    /* identical to box height, or 175% */
     text-align: right;
-    /* Black / 87% */
     color: rgba(0, 0, 0, 0.87);
 }
 
 span.match-sensitivity {
     position: absolute;
-    width: 178px;
+    width: 205px;
     height: 20px;
-    left: 758px;
-    top: 72px;
-    /* Body */
+    left: -94px;
+    top: 8px;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
     line-height: 28px;
-    /* identical to box height, or 175% */
-    /* Black / 87% */
     color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-slider-horizontal {
+    height: 48px;
+    min-width: 128px;
+    left: 110px;
+    width: 400px;
 }

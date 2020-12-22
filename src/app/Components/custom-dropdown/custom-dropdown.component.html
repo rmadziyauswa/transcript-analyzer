@@ -1,7 +1,8 @@
 <div class="custom-dropdown">
     <mat-form-field appearance="fill">
-        <mat-icon aria-hidden="false" aria-label="labelDescription">{{iconName}}</mat-icon>
-        <mat-label>{{labelDescription}}</mat-label>
+        <mat-label>
+            <mat-icon>{{iconName}}</mat-icon><span class="labelText"> {{labelDescription}}</span>
+        </mat-label>
         <mat-select (selectionChange)="selectedValue()" [(value)]="selectedOption">
             <mat-option *ngFor="let item of list" [value]="getValueField(item)">
                 {{getDescriptionField(item)}}

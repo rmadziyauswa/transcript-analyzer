@@ -1,10 +1,11 @@
 <div class="parameter-bar">
     <app-custom-dropdown (change)="changeAgent($event)" iconName="supervised_user_circle" labelDescription="Agent" optionValueField="agent_id" [optionDescriptionField]=agentDescriptions [list]=agents></app-custom-dropdown>
 
-    <div class="calls-dropdown">
+    <div class="group3">
         <mat-form-field appearance="fill">
-            <mat-icon aria-hidden="false" aria-label="labelDescription">call</mat-icon>
-            <mat-label>Call</mat-label>
+            <mat-label>
+                <mat-icon>call</mat-icon><span class="labelText"> Call</span>
+            </mat-label>
             <mat-select (selectionChange)="changeCall()" [(value)]="selectedCall">
                 <mat-option *ngFor="let call of calls" [value]="call.call_id">
                     {{call.call_start_time | date:'dd.L.YYYY'}} - {{call.customer[0].full_name}}

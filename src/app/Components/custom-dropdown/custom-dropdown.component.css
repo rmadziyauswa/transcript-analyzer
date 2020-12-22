@@ -11,3 +11,15 @@ div.custom-dropdown {
 div.custom-dropdown .mat-form-field {
     display: inline;
 }
+
+.mat-icon.material-icons.mat-icon-no-color {
+    width: 25px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+}
+
+span.labelText {
+    position: relative;
+    top: -5px;
+}
