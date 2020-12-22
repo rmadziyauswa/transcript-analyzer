@@ -23,7 +23,7 @@
                     <td>{{getTimeFrom(row["timeFrom"])}}</td>
                     <td>{{getSpeaker(row["channel"])}}</td>
                     <td (mouseover)="setMatchingExpectedSentence(row['matching_sentence'])" (mouseleave)="setMatchingExpectedSentence('')" [ngClass]="sentenceClasses(row['similarity'],row['sentence'])" [matTooltip]="getToolTip(row['similarity'],row['sentence'],row['matching_sentence'])"
-                        [matTooltipPosition]="tooltipPosition">{{row["sentence"]}}</td>
+                        [matTooltipPosition]="tooltipPosition" matTooltipClass="tooltip">{{row["sentence"]}}</td>
                 </tr>
             </tbody>
             <tbody *ngIf="!isReal">

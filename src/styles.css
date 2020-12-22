@@ -1,4 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+mat-tooltip-component .mat-tooltip.tooltip {
+    min-width: 466px!important;
+    max-width: 466px!important;
+    height: 72px;
+    background: rgba(97, 97, 97, 0.9);
+    opacity: 0.9;
+    border-radius: 2px;
+}
+
+.mat-accent .mat-slider-track-fill {
+    background-color: #5A5A71 !important;
+}
+
+.mat-slider-thumb-label {
+    background-color: #5A5A71 !important;
+}
+
+.mat-slider-thumb {
+    background-color: #5A5A71!important;
+}

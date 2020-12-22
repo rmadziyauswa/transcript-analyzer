@@ -19,7 +19,9 @@ export class SubScriptComponent implements OnInit,OnChanges {
   @Output() matchingExpectedSentenceEmitter = new EventEmitter<string>();
   pieChartData: SingleDataSet = [];
   expectedAgentLabel:string = "Rep :";
+  unknownSpeakerLabel:string = "Unknown";
   tooltipPosition:TooltipPosition = "above";
+  matTooltipClass:string = "tooltip";
   transcriptLoad!:TranscriptLoad;
   percentage:number = 0;
   customerName:string = "";
@@ -56,7 +58,7 @@ export class SubScriptComponent implements OnInit,OnChanges {
     {
       return this.customerName;
     }
-    return "";
+    return this.unknownSpeakerLabel;
   }
 
   getFirstnameOnly(fullName:string)

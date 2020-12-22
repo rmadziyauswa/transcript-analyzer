@@ -97,6 +97,11 @@ div.frame5 table th {
     padding: 4px 8px;
 }
 
+div.frame5 table td,
+div.frame5 table th {
+    min-width: 40px;
+}
+
 hr.tableHr {
     border-width: 1px;
     border-color: rgba(0, 0, 0, 0.12);
