@@ -30,3 +30,8 @@ mat-tooltip-component .mat-tooltip.tooltip {
 .mat-slider-thumb {
     background-color: #5A5A71!important;
 }
+
+.overlayPanelClass {
+    position: absolute;
+    top: 30px !important;
+}
