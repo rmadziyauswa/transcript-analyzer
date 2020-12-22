@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 //Angular Material
 import {MatIconModule} from '@angular/material/icon';
@@ -19,6 +20,7 @@ import { SensitivityMeterComponent } from './Components/sensitivity-meter/sensit
 import { CustomDropdownComponent } from './Components/custom-dropdown/custom-dropdown.component';
 import { SubScriptComponent } from './Components/sub-script/sub-script.component';
 import { TransacriptAnalyzerComponent } from './Components/transacript-analyzer/transacript-analyzer.component';
+import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { TransacriptAnalyzerComponent } from './Components/transacript-analyzer/
     SensitivityMeterComponent,
     CustomDropdownComponent,
     SubScriptComponent,
-    TransacriptAnalyzerComponent
+    TransacriptAnalyzerComponent,
+    PieChartComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import { TransacriptAnalyzerComponent } from './Components/transacript-analyzer/
     BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
     MatIconModule,
     MatSelectModule,
     MatSliderModule,

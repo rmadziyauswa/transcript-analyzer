@@ -1,0 +1,13 @@
+div.custom-dropdown {
+    position: relative;
+    width: 172px;
+    height: 38px;
+    left: 32px;
+    top: 5px;
+    background: rgba(51, 51, 51, 0.06);
+    border-radius: 4px 4px 0px 0px;
+}
+
+div.custom-dropdown .mat-form-field {
+    display: inline;
+}

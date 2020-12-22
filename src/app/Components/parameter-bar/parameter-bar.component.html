@@ -1,4 +1,5 @@
 <div class="parameter-bar">
+    <app-custom-dropdown (change)="changeAgent($event)" iconName="supervised_user_circle" labelDescription="Agent" optionValueField="agent_id" [optionDescriptionField]=agentDescriptions [list]=agents></app-custom-dropdown>
 
     <div class="calls-dropdown">
         <mat-form-field appearance="fill">
@@ -11,8 +12,6 @@
             </mat-select>
         </mat-form-field>
     </div>
-
-    <app-custom-dropdown (change)="changeAgent($event)" iconName="supervised_user_circle" labelDescription="Agent" optionValueField="agent_id" [optionDescriptionField]=agentDescriptions [list]=agents></app-custom-dropdown>
 
     <app-sensitivity-meter *ngIf="selectedCall" (change)="changeSensitivity($event)" rangeLabel="MATCHING SENSITIVITY" [sensitivity]=selectedSensitivity [disabled]=false [max]="100" [min]="0" [step]="1" [vertical]=false></app-sensitivity-meter>
 

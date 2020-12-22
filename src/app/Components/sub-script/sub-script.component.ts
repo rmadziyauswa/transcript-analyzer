@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { TooltipPosition } from '@angular/material/tooltip';
+import { SingleDataSet } from 'ng2-charts';
 import { TranscriptLoad } from 'src/app/Models/transcript-load';
 import { RepoService } from 'src/app/Services/repo.service';
 
@@ -16,6 +17,7 @@ export class SubScriptComponent implements OnInit,OnChanges {
   @Input() selectedSensitivity:number = 0;
   @Input() matchingExpectedSentence:string = "";
   @Output() matchingExpectedSentenceEmitter = new EventEmitter<string>();
+  pieChartData: SingleDataSet = [];
   expectedAgentLabel:string = "Rep :";
   tooltipPosition:TooltipPosition = "above";
   transcriptLoad!:TranscriptLoad;
@@ -38,6 +40,7 @@ export class SubScriptComponent implements OnInit,OnChanges {
         let agentId= this.transcriptLoad.agent[0].agent_id;
         this.repoService.getAgentById(agentId).subscribe(data => this.agentName = this.getFirstnameOnly(data[0].full_name));
         this.percentage = this.calculatePercentage();
+        this.pieChartData = [(100 - this.percentage) , this.percentage];
       }
     });
   }
@@ -137,7 +140,6 @@ if(!this.isReal && this.matchingExpectedSentence === matching_sentence)
 
   calculatePercentage()
   {
-    console.log(`IsReal = ${this.isReal} and Sensitivity = ${this.selectedSensitivity}`);
     let result = 0
     if(this.isReal)
     {

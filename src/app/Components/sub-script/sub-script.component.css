@@ -4,6 +4,9 @@ div.transcript {
     height: 682px;
     left: 32px;
     top: 144px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
 }
 
 div.transcript.isExpected {
@@ -11,28 +14,26 @@ div.transcript.isExpected {
 }
 
 div.rectangle4 {
-    position: absolute;
     width: 676px;
     height: 40px;
     left: 32px;
     top: 144px;
     background: #EFEFF1;
     border-radius: 4px 4px 0px 0px;
+    border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
 }
 
 span.body1font {
     position: absolute;
     width: 148px;
     height: 20px;
-    left: 56px;
-    top: 152px;
+    left: 24px;
+    top: 8px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 28px;
-    /* identical to box height, or 175% */
-    /* Black / 87% */
     color: rgba(0, 0, 0, 0.87);
 }
 
@@ -40,8 +41,8 @@ span.body2font {
     position: absolute;
     width: 56px;
     height: 20px;
-    left: 588px;
-    top: 152px;
+    left: 556px;
+    top: 8px;
     font-family: Roboto;
     font-style: normal;
     font-weight: bold;
@@ -63,12 +64,54 @@ div.group4 {
 
 div.frame5 table {
     position: absolute;
-    width: 628px;
+    width: 650px;
     height: 553px;
-    left: 56px;
-    top: 246px;
+    top: 49px;
     display: block;
     overflow-y: scroll;
+    border-spacing: 0.7rem;
+}
+
+div.frame5 table::-webkit-scrollbar {
+    width: 3px;
+}
+
+div.frame5 table::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px #C4C4C4;
+    border-radius: 10px;
+}
+
+div.frame5 table::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    -webkit-box-shadow: inset 0 0 6px #C4C4C4;
+}
+
+div.frame5 table th {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    text-align: left;
+    padding: 4px 8px;
+}
+
+hr.tableHr {
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.12);
+    border-style: solid;
+    width: 610px;
+}
+
+div.frame5 table td {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 4px 8px;
 }
 
 td.isSimilar {

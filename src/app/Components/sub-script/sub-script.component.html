@@ -7,9 +7,7 @@
             {{percentage}}%
         </span>
 
-        <div class="group4">
-
-        </div>
+        <pie-chart [pieChartData]=pieChartData></pie-chart>
     </div>
 
     <div class="frame5">
@@ -19,6 +17,7 @@
                     <th *ngFor="let column of columns">{{column}}</th>
                 </tr>
             </thead>
+            <hr class="tableHr" />
             <tbody *ngIf="isReal">
                 <tr *ngFor="let row of transcriptLoad.transcript">
                     <td>{{getTimeFrom(row["timeFrom"])}}</td>

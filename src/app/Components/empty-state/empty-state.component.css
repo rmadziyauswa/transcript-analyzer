@@ -1,5 +1,5 @@
 div.empty-state {
-    position: absolute;
+    position: static;
     width: 332px;
     height: 385px;
     left: 554px;
