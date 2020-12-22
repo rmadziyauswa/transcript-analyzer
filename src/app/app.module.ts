@@ -21,6 +21,7 @@ import { CustomDropdownComponent } from './Components/custom-dropdown/custom-dro
 import { SubScriptComponent } from './Components/sub-script/sub-script.component';
 import { TransacriptAnalyzerComponent } from './Components/transacript-analyzer/transacript-analyzer.component';
 import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
+import { MAT_FORM_FIELD_DEFAULT_OPTIONS } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import { PieChartComponent } from './Components/pie-chart/pie-chart.component';
     MatSliderModule,
     MatTooltipModule
   ],
-  providers: [],
+  providers: [{provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: {floatLabel: 'never'}}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

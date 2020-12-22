@@ -35,3 +35,35 @@ mat-tooltip-component .mat-tooltip.tooltip {
     position: absolute;
     top: 30px !important;
 }
+
+mat-form-field.mat-form-field {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    display: flex !important;
+    align-items: center;
+    color: rgba(0, 0, 0, 0.54);
+    height: 20px;
+    top: 15px;
+}
+
+div.mat-form-field-infix {
+    display: inherit;
+}
+
+div.mat-select-trigger {
+    left: 5px;
+}
+
+.mat-select-arrow {
+    top: 10px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid;
+    margin: 0 4px;
+    position: relative;
+}

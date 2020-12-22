@@ -36,15 +36,16 @@ export class ParameterBarComponent implements OnInit {
   changeAgent(e:string)
   {
     this.selectedCall = "";
-    this.changeCall();
+    this.changeCall(this.selectedCall);
     this.repoService.getCallsByAgentId(e).subscribe(data => {
       this.calls = data.sort((a,b)=> a.call_start_time.getDate() - b.call_start_time.getDate());
     });
   }
 
-  changeCall()
+  changeCall(e:string)
   {
     this.selectedSensitivity = this.DEFAULT_SENSITIVITY;
+    this.selectedCall = e;
     this.callIdEmitter.emit(this.selectedCall);
   }
 }

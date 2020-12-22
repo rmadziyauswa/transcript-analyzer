@@ -1,4 +1,6 @@
+import { formatDate } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {Call} from '../../Models/call';
 
 @Component({
   selector: 'app-custom-dropdown',
@@ -7,12 +9,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class CustomDropdownComponent implements OnInit {
   @Input() iconName?:string;
-  @Input() labelDescription?:string;
+  @Input() labelDescription:string = "";
   @Input() optionValueField:string = "";
   @Input() optionDescriptionField:string[] = [];
   @Input() list?:any[];
   @Output() change = new EventEmitter<string>();
   selectedOption:string = "";
+  locale:string = "en_US";
+  localeDateFormat:string = "dd.L.YYYY";
+  @Input() isCallType:boolean = false;
 
   constructor() { }
 
@@ -21,12 +26,21 @@ export class CustomDropdownComponent implements OnInit {
 
   getDescriptionField(item:any)
   {
-    if(this.optionDescriptionField?.length === 1)
+    if(this.isCallType)
     {
-      return item[this.optionDescriptionField[0]];
-    }else if(this.optionDescriptionField?.length === 2)
+      let call = item as Call;
+      let description = `${formatDate(call.call_start_time,this.localeDateFormat,this.locale)} - ${call.customer[0].full_name}`;
+      return description;
+    }
+    else
     {
-      return item[this.optionDescriptionField[0]] + item[this.optionDescriptionField[1]];
+      if(this.optionDescriptionField?.length === 1)
+      {
+        return item[this.optionDescriptionField[0]];
+      }else if(this.optionDescriptionField?.length === 2)
+      {
+        return item[this.optionDescriptionField[0]] + item[this.optionDescriptionField[1]];
+      }
     }
   }
 
