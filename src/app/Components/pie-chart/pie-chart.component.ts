@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input} from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip, Color } from 'ng2-charts';
 
@@ -7,7 +7,7 @@ import { SingleDataSet, Label, monkeyPatchChartJsLegend, monkeyPatchChartJsToolt
   templateUrl: './pie-chart.component.html',
   styleUrls: [ './pie-chart.component.css' ]
 })
-export class PieChartComponent implements OnInit,OnChanges  {
+export class PieChartComponent{
   public pieChartOptions: ChartOptions = {
     responsive: true,
   };
@@ -21,10 +21,5 @@ export class PieChartComponent implements OnInit,OnChanges  {
   constructor() {
     monkeyPatchChartJsTooltip();
     monkeyPatchChartJsLegend();
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-  }
-
-  ngOnInit() {
   }
 }

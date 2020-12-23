@@ -1,5 +1,5 @@
 import { formatDate } from '@angular/common';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import {Call} from '../../Models/call';
 
 @Component({
@@ -7,22 +7,18 @@ import {Call} from '../../Models/call';
   templateUrl: './custom-dropdown.component.html',
   styleUrls: ['./custom-dropdown.component.css']
 })
-export class CustomDropdownComponent implements OnInit {
+export class CustomDropdownComponent {
   @Input() iconName?:string;
   @Input() labelDescription:string = "";
   @Input() optionValueField:string = "";
   @Input() optionDescriptionField:string[] = [];
   @Input() list?:any[];
+  @Input() disabled:boolean = false;
   @Output() change = new EventEmitter<string>();
-  selectedOption:string = "";
+  @Input() selectedOption:string = "";
   locale:string = "en_US";
   localeDateFormat:string = "dd.L.YYYY";
   @Input() isCallType:boolean = false;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   getDescriptionField(item:any)
   {

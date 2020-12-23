@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { TranscriptLoad } from './Models/transcript-load';
+import { Component } from '@angular/core';
 import {environment} from '../environments/environment';
 
 @Component({
@@ -11,8 +10,7 @@ export class AppComponent {
   title = 'transcript-analyzer';
   callId!: string;
   selectedSensitivity:number = 0;
-  constructor(){}
-
+  
   ngOnInit(): void {
     this.selectedSensitivity = environment.defaultSensitivity;
   }

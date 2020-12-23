@@ -16,6 +16,7 @@ export class ParameterBarComponent implements OnInit {
   agentDescriptions:string[] = ['full_name'];
   callDescriptions:string[] = ['call_start_time',''];
   selectedCall:string = "";
+  selectedAgent:string = "";
   DEFAULT_SENSITIVITY:number = 38;
   selectedSensitivity:number = 0;
   @Output() callIdEmitter = new EventEmitter<string>();
@@ -35,6 +36,7 @@ export class ParameterBarComponent implements OnInit {
 
   changeAgent(e:string)
   {
+    this.selectedAgent = e;
     this.selectedCall = "";
     this.changeCall(this.selectedCall);
     this.repoService.getCallsByAgentId(e).subscribe(data => {
@@ -47,5 +49,14 @@ export class ParameterBarComponent implements OnInit {
     this.selectedSensitivity = this.DEFAULT_SENSITIVITY;
     this.selectedCall = e;
     this.callIdEmitter.emit(this.selectedCall);
+  }
+
+  isCallsDisabled()
+  {
+    if(this.calls)
+    {
+      return false;
+    }
+    return true;
   }
 }

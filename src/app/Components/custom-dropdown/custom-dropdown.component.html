@@ -1,7 +1,7 @@
 <div class="custom-dropdown">
     <mat-form-field appearance="fill">
         <mat-icon>{{iconName}}</mat-icon>
-        <mat-select [placeholder]="labelDescription" (selectionChange)="selectedValue()" [(value)]="selectedOption" panelClass="overlayPanelClass">
+        <mat-select [disabled]="disabled" [placeholder]="labelDescription" (selectionChange)="selectedValue()" [(value)]="selectedOption" panelClass="overlayPanelClass">
             <mat-option *ngFor="let item of list" [value]="getValueField(item)">
                 {{getDescriptionField(item)}}
             </mat-option>

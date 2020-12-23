@@ -33,7 +33,8 @@ mat-tooltip-component .mat-tooltip.tooltip {
 
 .overlayPanelClass {
     position: absolute;
-    top: 30px !important;
+    top: 50px !important;
+    left: -22px !important;
 }
 
 mat-form-field.mat-form-field {
@@ -46,6 +47,10 @@ mat-form-field.mat-form-field {
     color: rgba(0, 0, 0, 0.54);
     height: 20px;
     top: 15px;
+}
+
+.mat-form-field-appearance-fill.mat-form-field-disabled .mat-form-field-underline::before {
+    background-color: rgba(0, 0, 0, .42);
 }
 
 div.mat-form-field-infix {

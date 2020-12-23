@@ -1,7 +1,7 @@
 <div class="parameter-bar">
     <app-custom-dropdown (change)="changeAgent($event)" [isCallType]="false" iconName="supervised_user_circle" labelDescription="Agent" optionValueField="agent_id" [optionDescriptionField]=agentDescriptions [list]=agents></app-custom-dropdown>
     <div class="calls">
-        <app-custom-dropdown (change)="changeCall($event)" [isCallType]="true" iconName="call" labelDescription="Call" optionValueField="call_id" [optionDescriptionField]=callDescriptions [list]=calls></app-custom-dropdown>
+        <app-custom-dropdown [selectedOption]="selectedCall" [disabled]="isCallsDisabled()" (change)="changeCall($event)" [isCallType]="true" iconName="call" labelDescription="Call" optionValueField="call_id" [optionDescriptionField]=callDescriptions [list]=calls></app-custom-dropdown>
     </div>
     <app-sensitivity-meter *ngIf="selectedCall" (change)="changeSensitivity($event)" rangeLabel="MATCHING SENSITIVITY" [sensitivity]=selectedSensitivity [disabled]=false [max]="100" [min]="0" [step]="1" [vertical]=false></app-sensitivity-meter>
 

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { TooltipPosition } from '@angular/material/tooltip';
 import { SingleDataSet } from 'ng2-charts';
 import { TranscriptLoad } from 'src/app/Models/transcript-load';
@@ -9,7 +9,7 @@ import { RepoService } from 'src/app/Services/repo.service';
   templateUrl: './sub-script.component.html',
   styleUrls: ['./sub-script.component.css']
 })
-export class SubScriptComponent implements OnInit,OnChanges {
+export class SubScriptComponent implements OnChanges {
   @Input() columns?:string[];
   @Input() callId: string = "";
   @Input() headerLabel: string = "Real";
@@ -45,9 +45,6 @@ export class SubScriptComponent implements OnInit,OnChanges {
         this.pieChartData = [(100 - this.percentage) , this.percentage];
       }
     });
-  }
-
-  ngOnInit(): void {
   }
 
   getSpeaker(channel_no:number){

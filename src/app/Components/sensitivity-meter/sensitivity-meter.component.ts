@@ -1,11 +1,11 @@
-import { Component, OnInit, Output, EventEmitter,Input } from '@angular/core';
+import { Component,Output, EventEmitter,Input } from '@angular/core';
 
 @Component({
   selector: 'app-sensitivity-meter',
   templateUrl: './sensitivity-meter.component.html',
   styleUrls: ['./sensitivity-meter.component.css']
 })
-export class SensitivityMeterComponent implements OnInit {
+export class SensitivityMeterComponent {
   @Output() change = new EventEmitter<number>();
   @Input() sensitivity:number = 38;
   @Input() rangeLabel = "MATCHING SENSITIVITY";
@@ -14,11 +14,6 @@ export class SensitivityMeterComponent implements OnInit {
   @Input() min = 0;
   @Input() step = 1;
   @Input() vertical = false;
-  
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   emitSensitivity()
   {
