@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {environment} from '../environments/environment';
+import { environment } from '../environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +9,17 @@ import {environment} from '../environments/environment';
 export class AppComponent {
   title = 'transcript-analyzer';
   callId!: string;
-  selectedSensitivity:number = 0;
-  
+  selectedSensitivity: number = 0;
+
   ngOnInit(): void {
     this.selectedSensitivity = environment.defaultSensitivity;
   }
 
-  callIdEmitter(e:string)
-  {
+  setCallId(e: string) {
     this.callId = e;
   }
 
-  sensitivityEmitter(e:number)
-  {
+  setSensitivity(e: number) {
     this.selectedSensitivity = e;
   }
 }

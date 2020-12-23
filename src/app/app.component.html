@@ -1,6 +1,6 @@
 <div class="container">
     <app-header headerText="TRANSCRIPT ANALYZER" imageSource="../../../assets/images/Ellipse1.png"></app-header>
-    <app-parameter-bar (callIdEmitter)="callIdEmitter($event)" (sensitivityEmitter)="sensitivityEmitter($event)"></app-parameter-bar>
+    <app-parameter-bar (callIdEmitter)="setCallId($event)" (sensitivityEmitter)="setSensitivity($event)"></app-parameter-bar>
     <app-empty-state *ngIf="!callId"></app-empty-state>
     <app-transacript-analyzer [callId]=callId [selectedSensitivity]=selectedSensitivity></app-transacript-analyzer>
 </div>

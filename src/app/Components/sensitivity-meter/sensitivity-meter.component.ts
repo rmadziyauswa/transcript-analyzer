@@ -1,4 +1,4 @@
-import { Component,Output, EventEmitter,Input } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sensitivity-meter',
@@ -7,7 +7,7 @@ import { Component,Output, EventEmitter,Input } from '@angular/core';
 })
 export class SensitivityMeterComponent {
   @Output() change = new EventEmitter<number>();
-  @Input() sensitivity:number = 38;
+  @Input() sensitivity: number = 38;
   @Input() rangeLabel = "MATCHING SENSITIVITY";
   @Input() disabled = false;
   @Input() max = 100;
@@ -15,8 +15,7 @@ export class SensitivityMeterComponent {
   @Input() step = 1;
   @Input() vertical = false;
 
-  emitSensitivity()
-  {
+  emitSensitivity() {
     this.change.emit(this.sensitivity);
   }
 

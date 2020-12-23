@@ -5,15 +5,14 @@ import { Component, Input } from '@angular/core';
   templateUrl: './transacript-analyzer.component.html',
   styleUrls: ['./transacript-analyzer.component.css']
 })
-export class TransacriptAnalyzerComponent{
-  columnsForReal:string[] = ['Time','Speaker','Sentence'];
-  columnsForExpected:string[] = ['Line','Speaker','Sentence'];
+export class TransacriptAnalyzerComponent {
+  columnsForReal: string[] = ['Time', 'Speaker', 'Sentence'];
+  columnsForExpected: string[] = ['Line', 'Speaker', 'Sentence'];
   @Input() callId: string = "";
-  @Input() selectedSensitivity:number = 0;
-  currentMatchingExpectedSentence:string = "";
+  @Input() selectedSensitivity: number = 0;
+  currentMatchingExpectedSentence: string = "";
 
-  currentMatchingExpectedSentenceChange(e:string)
-  {
+  currentMatchingExpectedSentenceChange(e: string) {
     this.currentMatchingExpectedSentence = e;
   }
 }

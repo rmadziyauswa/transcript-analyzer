@@ -5,4 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './empty-state.component.html',
   styleUrls: ['./empty-state.component.css']
 })
-export class EmptyStateComponent {}
+export class EmptyStateComponent { }
